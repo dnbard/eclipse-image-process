@@ -4,13 +4,14 @@ const Jimp = require('jimp');
 const fs = require('fs');
 
 const folderPath = process.argv[2];
+const size = parseInt(process.argv[3]);
 const files = fs.readdirSync(folderPath);
 
 const metadata = [];
 
 const operations = files.map(file => {
     return Jimp.read(`${folderPath}\\${file}`).then(image => {
-        image.resize(48, 48)
+        image.resize(size, size)
              .write(`output\\planet-${image.hash()}.png`);
 
         return image;
@@ -19,8 +20,8 @@ const operations = files.map(file => {
             kind: 'planet',
             id: image.hash(),
             filename: `planet-${image.hash()}.png`,
-            widht: 48,
-            height: 48
+            widht: size,
+            height: size
         });
     });
 });
