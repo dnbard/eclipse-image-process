@@ -1,0 +1,14 @@
+{
+  "name": "eclipse-image-process",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "default": "node resize C:\\Users\\Alex\\Pictures\\eclipse-planets"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jimp": "^0.2.27"
+  }
+}
